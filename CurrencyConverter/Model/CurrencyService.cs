@@ -10,6 +10,7 @@ namespace CurrencyConverter.Model
     public class CurrencyService
     {
         private const string JSON_PATH = "https://www.cbr-xml-daily.ru/daily_json.js";
+        private double buyAmount;
         public List<Valute> Valutes { get; private set; }
         public Currency Currency { get; private set; }
 
@@ -42,6 +43,13 @@ namespace CurrencyConverter.Model
         public void LoadValutes(ComboBox comboBox)
         {
             comboBox.ItemsSource = Valutes;
+        }
+
+        public string Convert(double sellAmount, Valute sellValute, Valute buyValute)
+        {
+            buyAmount = sellAmount * (buyValute.Nominal / sellValute.Nominal) * (sellValute.Value / buyValute.Value);
+
+            return $"{buyAmount:F4}";
         }
     }
 }

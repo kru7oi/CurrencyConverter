@@ -26,15 +26,19 @@ namespace CurrencyConverter
         {
 
         }
-        private void UpdateCourseBtn_Click(object sender, RoutedEventArgs e)
+        private async void UpdateCourseBtn_Click(object sender, RoutedEventArgs e)
         {
-            _currencyService.LoadCurrencyAsync(CurrencyLv);
+            await _currencyService.LoadCurrencyAsync(CurrencyLv);
             _currencyService.LoadValutes(SellCmb);
             _currencyService.LoadValutes(PurchaseCmb);
         }
         private void ConvertBtn_Click(object sender, RoutedEventArgs e)
         {
+            double sellAmount = double.Parse(SellTb.Text);
+            Valute sellValute = SellCmb.SelectedItem as Valute;
+            Valute buyValute = PurchaseCmb.SelectedItem as Valute;
 
+            PurchaseTb.Text = _currencyService.Convert(sellAmount, sellValute, buyValute);
         }
     }
 }
