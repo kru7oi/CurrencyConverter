@@ -4,7 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CurrencyConverter"
-        mc:Ignorable="d" Title="Конвертер валют" SizeToContent="Height" Width="1280" ResizeMode="NoResize">
+        mc:Ignorable="d" Title="Конвертер валют" SizeToContent="Height" Width="1280" ResizeMode="NoResize" >
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFF0F5FB" />
+            <GradientStop Color="#FFDBE9F6" Offset="1" />
+        </LinearGradientBrush>
+    </Window.Background>
     <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -26,12 +32,12 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock Text="У меня есть" />
-        <TextBlock Grid.Column="4" Text="Хочу приобрести" />
+        <TextBlock Grid.Column="4" Text="Хочу приобрести"/>
 
         <ComboBox Name="SellCmb" Grid.Row="2" DisplayMemberPath="Name"/>
         <ComboBox Name="PurchaseCmb" Grid.Row="2" Grid.Column="4" DisplayMemberPath="Name"/>
 
-        <Border Grid.Row="4" BorderThickness="2" BorderBrush="LightGray">
+        <Border Grid.Row="4" Background="#F0F5F9" BorderThickness="2" BorderBrush="#0B1F52" CornerRadius="10">
             <Grid Margin="20">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
@@ -39,12 +45,12 @@
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
 
-                <TextBox Name="SellTb" Text="5000500000" FontSize="80" FontWeight="Bold" MaxLength="10" />
-                <TextBlock Name="SellTbl" Grid.Row="2" Text="1 RUR = 0.0098 USD" />
+                <TextBox Name="SellTb" Text="0" FontWeight="Bold" FontSize="80"  MaxLength="10" />
+                <TextBlock Name="SellTbl" Grid.Row="2" FontSize="25"/>
             </Grid>
         </Border>
 
-        <Border Grid.Row="4" Grid.Column="4" BorderThickness="2" BorderBrush="LightGray">
+        <Border Grid.Row="4" Grid.Column="4" Background="#F0F5F9" BorderThickness="2" BorderBrush="#0B1F52" CornerRadius="10">
             <Grid Margin="20">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
@@ -52,8 +58,8 @@
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
 
-                <TextBox Name="BuyTb" Text="5000500000" FontSize="80" FontWeight="Bold" MaxLength="10" />
-                <TextBlock Name="BuyTbl" Grid.Row="2" Text="1 RUR = 0.0098 USD" />
+                <TextBox Name="BuyTb" Text="0" FontSize="80" FontWeight="Bold" MaxLength="10" />
+                <TextBlock Name="BuyTbl" Grid.Row="2" FontSize="25"/>
             </Grid>
         </Border>
 
@@ -69,7 +75,7 @@
             <Button Name="ConvertBtn" Grid.Column="2" Content="Конвертировать" Click="ConvertBtn_Click" />
         </Grid>
 
-        <ListView Name="CurrencyLv" Grid.Row="8" Grid.ColumnSpan="5">
+        <ListView Name="CurrencyLv" Grid.Row="8" Grid.ColumnSpan="5" Background="#F0F5F9">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}" />

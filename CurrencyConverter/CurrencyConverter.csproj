@@ -8,7 +8,27 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Fonts\Manrope-Bold.ttf" />
+    <None Remove="Resources\Fonts\Manrope-ExtraBold.ttf" />
+    <None Remove="Resources\Fonts\Manrope-ExtraLight.ttf" />
+    <None Remove="Resources\Fonts\Manrope-Light.ttf" />
+    <None Remove="Resources\Fonts\Manrope-Medium.ttf" />
+    <None Remove="Resources\Fonts\Manrope-Regular.ttf" />
+    <None Remove="Resources\Fonts\Manrope-SemiBold.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Fonts\Manrope-Bold.ttf" />
+    <Resource Include="Resources\Fonts\Manrope-ExtraBold.ttf" />
+    <Resource Include="Resources\Fonts\Manrope-ExtraLight.ttf" />
+    <Resource Include="Resources\Fonts\Manrope-Light.ttf" />
+    <Resource Include="Resources\Fonts\Manrope-Medium.ttf" />
+    <Resource Include="Resources\Fonts\Manrope-Regular.ttf" />
+    <Resource Include="Resources\Fonts\Manrope-SemiBold.ttf" />
   </ItemGroup>
 
 </Project>
