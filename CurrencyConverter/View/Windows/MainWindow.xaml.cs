@@ -41,6 +41,8 @@ namespace CurrencyConverter
             Valute buyValute = PurchaseCmb.SelectedItem as Valute;
 
             BuyTb.Text = _currencyService.ConvertValute(sellAmount, sellValute, buyValute);
+
+            _currencyService.SetRatio(SellTbl, BuyTbl);
         }
     }
 }

@@ -40,7 +40,7 @@
                 </Grid.RowDefinitions>
 
                 <TextBox Name="SellTb" Text="5000500000" FontSize="80" FontWeight="Bold" MaxLength="10" />
-                <TextBlock Grid.Row="2" Text="1 RUR = 0.0098 USD" />
+                <TextBlock Name="SellTbl" Grid.Row="2" Text="1 RUR = 0.0098 USD" />
             </Grid>
         </Border>
 
@@ -53,7 +53,7 @@
                 </Grid.RowDefinitions>
 
                 <TextBox Name="BuyTb" Text="5000500000" FontSize="80" FontWeight="Bold" MaxLength="10" />
-                <TextBlock Grid.Row="2" Text="1 RUR = 0.0098 USD" />
+                <TextBlock Name="BuyTbl" Grid.Row="2" Text="1 RUR = 0.0098 USD" />
             </Grid>
         </Border>
 
