@@ -1,4 +1,6 @@
 ﻿using CurrencyConverter.AppData;
+using CurrencyConverter.Model;
+using System;
 using System.Windows;
 
 namespace CurrencyConverter
@@ -25,7 +27,13 @@ namespace CurrencyConverter
 
         private void ConvertBtn_Click(object sender, RoutedEventArgs e)
         {
+            double sellAmount = Convert.ToDouble(SellTb.Text);
+            Valute buyValute = PurchaseCmb.SelectedItem as Valute;
+            Valute sellValute = SellCmb.SelectedItem as Valute;
 
+            BuyTb.Text = _currencyService.ConvertValute(sellAmount, sellValute, buyValute);
+
+            _currencyService.SetRatio(SellTbl, BuyTbl);
         }
     }
 }

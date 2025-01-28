@@ -39,8 +39,8 @@
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
 
-                <TextBox Text="5000500000" FontSize="80" FontWeight="Bold" MaxLength="10" />
-                <TextBlock Grid.Row="2" Text="1 RUR = 0.0098 USD" />
+                <TextBox Name="SellTb" Text="5000500000" FontSize="80" FontWeight="Bold" MaxLength="10" />
+                <TextBlock Name="SellTbl" Grid.Row="2" Text="1 RUR = 0.0098 USD" />
             </Grid>
         </Border>
 
@@ -52,8 +52,8 @@
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
 
-                <TextBox Text="5000500000" FontSize="80" FontWeight="Bold" MaxLength="10" />
-                <TextBlock Grid.Row="2" Text="1 RUR = 0.0098 USD" />
+                <TextBox Name="BuyTb" Text="5000500000" FontSize="80" FontWeight="Bold" MaxLength="10" />
+                <TextBlock Name="BuyTbl" Grid.Row="2" Text="1 RUR = 0.0098 USD" />
             </Grid>
         </Border>
 

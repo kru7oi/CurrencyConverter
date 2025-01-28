@@ -13,8 +13,15 @@ namespace CurrencyConverter.AppData
     public class CurrencyService
     {
         private const string JSON_PATH = "https://www.cbr-xml-daily.ru/daily_json.js";
-        public List<Valute> Valutes { get; private set; }
 
+        private double buyAmount;
+        private double sellAmount;
+        private Valute buyValute;
+        private Valute sellValute;
+        private double sellRatio;
+        private double buyRatio;
+
+        public List<Valute> Valutes { get; private set; }
         public async Task LoadCurrencyAsync(ListView listView)
         {
             try
@@ -43,10 +50,28 @@ namespace CurrencyConverter.AppData
                 MessageBox.Show(exception.Message);
             }
         }
-
         public void LoadValutes(ComboBox comboBox)
         {
             comboBox.ItemsSource = Valutes;
+        }
+
+        public string ConvertValute(double sellAmount, Valute sellValute, Valute buyValute)
+        {
+            this.sellAmount = sellAmount;
+            this.sellValute = sellValute;
+            this.buyValute = buyValute;
+            buyAmount = sellAmount * buyValute.Nominal / sellValute.Nominal * sellValute.Value / buyValute.Value;
+
+            return $"{buyAmount:F4}";
+        }
+
+        public void SetRatio(TextBlock sellTbl, TextBlock buyTbl)
+        {
+            sellRatio = buyAmount / sellAmount;
+            buyRatio = sellAmount / buyAmount;
+
+            sellTbl.Text = $"1 {sellValute.CharCode} = {sellRatio:F4} {buyValute.CharCode}";
+            buyTbl.Text = $"1 {buyValute.CharCode} = {buyRatio:F4} {sellValute.CharCode}";
         }
     }
 }
