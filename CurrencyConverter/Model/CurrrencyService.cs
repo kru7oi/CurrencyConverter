@@ -12,12 +12,14 @@ namespace CurrencyConverter.Model
     internal class CurrrencyService
     {
         private const string JSON_PATH = "https://www.cbr-xml-daily.ru/daily_json.js";
+
         private double buyAmount;
         private double sellAmount;
         private Valute buyValute;
         private Valute sellValute;
         private double sellRatio;
         private double buyRatio;
+
         public List<Valute> Valutes { get; private set; }
         public Currency Currency { get; private set; }
 
@@ -60,7 +62,7 @@ namespace CurrencyConverter.Model
             this.sellAmount = sellAmount;
             this.sellValute = sellValute;
             this.buyValute = buyValute;
-            buyAmount = sellAmount * ((double)buyValute.Nominal / (double)sellValute.Nominal) * (sellValute.Value / buyValute.Value);
+            buyAmount = sellAmount * buyValute.Nominal / sellValute.Nominal * sellValute.Value / buyValute.Value;
 
             return $"{buyAmount:F4}";
         }
